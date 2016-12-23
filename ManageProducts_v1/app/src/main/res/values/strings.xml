@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ManageProducts</string>
+    <string name="txtLoginUser">User:</string>
+    <string name="txtLoginPassword">Password:</string>
+    <string name="chbLoginRemember">Remember</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnLoginCancel">Cancel</string>
+    <string name="hintUser">Introduce an user</string>
+    <string name="hintPass">Introduce a password</string>
+    <string name="savedUser">Saved</string>
+    <string name="contentdescription">contentDescription</string>
+    <string name="txt_product_name">Name</string>
+    <string name="txt_product_description">Description</string>
+    <string name="txt_product_concentration">Concentration</string>
+    <string name="txt_product_brand">Brand</string>
+    <string name="txt_product_price">Price</string>
+    <string name="txt_product_stock">Stock</string>
+    <string name="txt_product_image">Image</string>
+</resources>

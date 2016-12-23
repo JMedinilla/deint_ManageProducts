@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map linked="true">
+    <entry key="10">passDigit</entry>
+    <entry key="11">passCase</entry>
+    <entry key="12">passMinLength</entry>
+    <entry key="13">data_empty</entry>
+</map>

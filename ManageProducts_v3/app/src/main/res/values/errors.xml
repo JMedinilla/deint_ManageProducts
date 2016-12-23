@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_empty">The user cannot be empty</string>
+    <string name="pass_empty">The password cannot be empty</string>
+    <string name="password_length">The password have to be between 8 and 30 characters</string>
+    <string name="password_digit">The password must contain 1 or more digit</string>
+    <string name="password_case">The password must contain 1 or more uppercase and lowercase characters</string>
+    <string name="email_invalid">Invalid mail format</string>
+
+    <string name="producterror_long_name">The name of the product is too long (40 maximum)</string>
+    <string name="producterror_empty_name">The product needs a name</string>
+    <string name="producterror_long_description">The description of the product is too long (200 maximum)</string>
+    <string name="producterror_empty_description">The product needs a description</string>
+    <string name="producterror_long_concentration">The concentration of the product is too long (40 maximum)</string>
+    <string name="producterror_empty_concentration">The product needs a concentration</string>
+    <string name="producterror_long_brand">The brand of the product is too long (40 maximum)</string>
+    <string name="producterror_empty_brand">The product needs a brand</string>
+    <string name="producterror_empty_price">The product needs a price</string>
+    <string name="producterror_empty_stock">The product needs a stock</string>
+</resources>

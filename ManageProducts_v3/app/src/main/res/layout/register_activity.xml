@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context="com.jmedinilla.manageproducts.Register_Activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRegisterUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/error"
+                app:hintTextAppearance="@style/hint">
+
+                <EditText
+                    android:id="@+id/edtRegisterUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/edtRegisterUser"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimaryDark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRegisterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRegisterUser"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/error"
+                app:hintTextAppearance="@style/hint">
+
+                <EditText
+                    android:id="@+id/edtRegisterPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/edtRegisterPassword"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimaryDark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRegisterMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRegisterPassword"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/error"
+                app:hintTextAppearance="@style/hint">
+
+                <EditText
+                    android:id="@+id/edtRegisterMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/edtRegisterMail"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimaryDark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtRegisterLocality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRegisterMail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:text="@string/txtRegisterLocality"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Spinner
+                android:id="@+id/spinLocality"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/txtRegisterLocality"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/txtRegisterMunicipaly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinLocality"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:text="@string/txtRegisterMunicipaly"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Spinner
+                android:id="@+id/spinMunicipality"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/txtRegisterMunicipaly"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/txtRegisterType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinMunicipality"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/txtRegisterType"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <RadioGroup
+                android:id="@+id/rdgrType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRegisterType"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbRegisterPersonMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/rbRegisterPersonMale"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <RadioButton
+                    android:id="@+id/rbRegisterPersonFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rbRegisterPersonFemale"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <RadioButton
+                    android:id="@+id/rbRegisterBusiness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/rbRegisterBusiness"
+                    android:textColor="@color/colorPrimaryDark" />
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRegisterBusinessName"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rdgrType"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="gone"
+                app:counterEnabled="true"
+                app:errorEnabled="true"
+                app:errorTextAppearance="@style/error"
+                app:hintTextAppearance="@style/hint">
+
+                <EditText
+                    android:id="@+id/edtRegisterBusinessName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/edtRegisterUser"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimaryDark" />
+            </android.support.design.widget.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/chkTerms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilRegisterBusinessName"
+                android:text="@string/chkTerms"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/chkSuscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/chkTerms"
+                android:layout_alignParentEnd="true"
+                android:checked="true"
+                android:text="@string/chkSuscription"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnRegisterOk"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/chkTerms"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:onClick="signup"
+                android:text="@string/btnRegisterOk"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

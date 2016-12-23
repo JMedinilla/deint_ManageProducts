@@ -1,0 +1,8 @@
+com.jmedinilla.manageproducts
+com.jmedinilla.manageproducts.adapter
+com.jmedinilla.manageproducts.application
+com.jmedinilla.manageproducts.interfaces
+com.jmedinilla.manageproducts.model
+com.jmedinilla.manageproducts.preferences
+com.jmedinilla.manageproducts.presenter
+com.jmedinilla.manageproducts.utils
