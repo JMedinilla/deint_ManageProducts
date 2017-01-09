@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory android:title="@string/pref_user_acount">
+
+        <SwitchPreference
+            android:title="@string/pref_user_title"
+            android:key="user_remember"
+            android:summary="@string/pref_remenber"
+            />
+
+        <SwitchPreference
+            android:title="@string/pref_updates"
+            android:key="user_updates"
+            android:summary="@string/pref_updates"
+            />
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_name_user"
+            android:key="user_name"
+            android:summary="@string/pref_password_sumary"
+            />
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_email"
+            android:key="user_email"
+            android:summary="@string/text_summary_email"
+            />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_paswd"
+            android:key="user_password"
+            android:summary="@string/text_summary_pwd"
+            />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_bus"
+            android:key="user_business"
+            android:summary="@string/text_summary_buss"
+            />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_locality"
+            android:key="user_locality"
+            android:summary="@string/text_summary_city"
+            />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_province"
+            android:key="user_province"
+            android:summary="@string/text_summary_provincia"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>
