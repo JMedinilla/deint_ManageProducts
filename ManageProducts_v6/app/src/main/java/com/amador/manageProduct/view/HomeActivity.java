@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity implements ManageProductList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.content_navigation);
         parent = (FrameLayout)findViewById(R.id.frameHome);
         listFragment = (MultiListProductFragment) getSupportFragmentManager().findFragmentByTag(TAG_LIST_FRAGMENT);
         productFormFragment = (ManageProductFragment) getSupportFragmentManager().findFragmentByTag(TAG_FORM_PRODUCT);
