@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="192dp"
     android:background="@drawable/background_nav"
-    android:gravity="center"
+    android:gravity="bottom|start"
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">

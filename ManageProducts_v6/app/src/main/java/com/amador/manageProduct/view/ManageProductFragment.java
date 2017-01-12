@@ -99,7 +99,7 @@ public class ManageProductFragment extends Fragment implements ManagePresenter.V
 
                     product = new Product(edtName.getText().toString(), edtDescrition.getText().toString(),
                             edtBrand.getText().toString(), edtDosage.getText().toString(), Double.parseDouble(edtPrice.getText().toString()),
-                            Integer.parseInt(edtStock.getText().toString()), R.drawable.pill);
+                            Integer.parseInt(edtStock.getText().toString()), R.drawable.pill, 0);
                     presenter.addProduct(product);
                     mCallBack.onListProductListener(getString(R.string.add_ok));
 

@@ -36,17 +36,17 @@ public class ProductApplication extends Application {
 
 
         products = new ArrayList<Product>();
-        saveProduct(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Aspirina", "La de toa la via cohone", "Test", "No te cueles que te acostumbras", 129.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Diazepan", "Ideal para francotiradores", "Telva", "No te cueles que te acostumbras", 192.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Aspirina", "La de toa la via cohone", "Test", "No te cueles que te acostumbras", 129.95, 20, R.drawable.pill ));
-        saveProduct(new Product("Diazepan", "Ideal para francotiradores", "Telva", "No te cueles que te acostumbras", 192.95, 20, R.drawable.pill ));
+        saveProduct(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Aspirina", "La de toa la via cohone", "Test", "No te cueles que te acostumbras", 129.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Diazepan", "Ideal para francotiradores", "Telva", "No te cueles que te acostumbras", 192.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Aspirina", "La de toa la via cohone", "Test", "No te cueles que te acostumbras", 129.95, 20, R.drawable.pill, 0));
+        saveProduct(new Product("Diazepan", "Ideal para francotiradores", "Telva", "No te cueles que te acostumbras", 192.95, 20, R.drawable.pill, 0));
     }
 }

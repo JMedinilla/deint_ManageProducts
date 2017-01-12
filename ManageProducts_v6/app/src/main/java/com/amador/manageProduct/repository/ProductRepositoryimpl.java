@@ -21,10 +21,10 @@ public class ProductRepositoryimpl implements Repository {
     private ProductRepositoryimpl(){
 
         products = new ArrayList<Product>();
-        products.add(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill ));
-        products.add(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill ));
-        products.add(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill ));
-        products.add(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill ));
+        products.add(new Product("Iboprofeno", "Telo quitato", "Telva", "No te cueles que te acostumbras", 12.95, 20, R.drawable.pill, 0));
+        products.add(new Product("Hemoal", "Alivia que no veas", "Hemoal", "No te cueles que te acostumbras", 20.95, 20, R.drawable.pill, 0));
+        products.add(new Product("Nolotil", "Pa las muelas lo meho", "Trigo limpio", "No te cueles que te acostumbras", 95.95, 20, R.drawable.pill, 0));
+        products.add(new Product("Buscapina", "Te da un sueñesito mu rico", "Quita dolores", "No te cueles que te acostumbras", 122.95, 20, R.drawable.pill, 0));
     }
 
     public static ProductRepositoryimpl getInstance(){

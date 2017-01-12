@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group>
-        <item android:title="hola" android:icon="@drawable/ic_delete_context" />
-        <item android:title="hola" android:icon="@drawable/ic_delete_context"/>
-        <item android:title="hola" android:icon="@drawable/ic_delete_context" />
-        <item android:title="hola" android:icon="@drawable/ic_delete_context" />
+    <group android:checkableBehavior="single">
+        <item android:title="Home" android:id="@+id/menu_nav_home" android:icon="@drawable/ic_delete_context" />
+        <item android:title="Productos" android:id="@+id/menu_nav_products" android:icon="@drawable/ic_delete_context"/>
+        <item android:title="Farmacias" android:id="@+id/menu_nav_pharmacy" android:icon="@drawable/ic_delete_context" />
+        <item android:title="Facturas" android:id="@+id/menu_nav_invoice" android:icon="@drawable/ic_delete_context" />
     </group>
     <item android:title="Config">
         <menu>
-            <item android:title="adios" android:icon="@drawable/ic_delete_context" />
-            <item android:title="adios" android:icon="@drawable/ic_delete_context" />
+            <item android:title="Configuracion" android:id="@+id/menu_nav_configuration" android:icon="@drawable/ic_delete_context" />
+            <item android:title="Salir" android:id="@+id/menu_nav_exit" android:icon="@drawable/ic_delete_context" />
         </menu>
     </item>
 

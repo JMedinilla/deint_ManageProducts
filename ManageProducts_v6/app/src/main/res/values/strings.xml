@@ -66,4 +66,7 @@
     <string name="action_canceled">Accion cancelada for you!!!</string>
     <string name="add_ok">Producto añadido</string>
     <string name="update_ok">Producto modificado con exito</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>
