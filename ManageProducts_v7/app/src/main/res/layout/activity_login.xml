@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_relative_layout_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jsw.MngProductDatabase.Login_Activity">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/til_user"
+        app:errorEnabled="true"
+        app:errorTextAppearance="@color/errores"
+        app:counterMaxLength="20">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/hint_user"
+            android:ems="10"
+            android:id="@+id/et_user"
+            android:maxLength="20"
+            android:text="Joselu" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/til_password"
+        app:errorTextAppearance="@color/errores"
+        android:layout_below="@id/til_user"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:counterMaxLength="20">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_pass"
+            android:text="aaaaaaaaA1"
+            android:inputType="textPassword"
+            android:id="@+id/et_passwd"
+            android:maxLength="20"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <CheckBox
+        android:text="@string/cb_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_remeber"
+        android:layout_below="@id/til_password"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/widget_margin_top"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cb_remeber"
+        android:gravity="center_horizontal"
+        android:id="@+id/rlt_btn">
+
+        <include android:id="@+id/bt_login" layout="@layout/layout_btn_login"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:text="Forgot your password?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_forgot"
+        android:layout_below="@id/til_password"
+        android:layout_centerHorizontal="true"
+        android:autoLink="web"
+        android:textSize="20dp" />
+
+    <TextView
+        android:text="Dont have an account? SING UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_signup"
+        android:autoLink="web"
+        android:textSize="20dp"
+        android:layout_below="@id/rlt_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:onClick="signUp"/>
+
+
+</RelativeLayout>
