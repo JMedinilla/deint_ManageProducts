@@ -1,6 +1,5 @@
 package com.jsw.MngProductDatabase.database;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,7 +11,7 @@ import com.jsw.MngProductDatabase.ManageproductApplication;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "Manage.db";
     private volatile static DatabaseHelper databaseHelper;
     private AtomicInteger mOpenCounter;
@@ -40,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(ManageContract.PharmacyEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(ManageContract.InvoiceEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(ManageContract.InvoiceLineEntry.SQL_CREATE_ENTRIES);
+            sqLiteDatabase.execSQL(ManageContract.CategoryEntry.SQL_INSERT_CATEGORY);
             sqLiteDatabase.setTransactionSuccessful();
         } catch (SQLiteException ex) {
             Log.e("MngProductDatabase", "Error al crear la base de datos" + ex.getMessage());

@@ -23,6 +23,7 @@ public class ManageContract {
         public static final String SQL_DELETE_ENTRIES =
                 String.format("DROP TABLE IF EXISTS %s",
                         TABLE_NAME);
+        public static final String SQL_INSERT_CATEGORY = "INSERT INTO category VALUES ('1', 'jarabe')";
     }
 
     public static class ProductEntry implements BaseColumns {
@@ -35,6 +36,8 @@ public class ManageContract {
         public static final String COLUMN_STOCK = "stock";
         public static final String COLUMN_IMAGE = "image";
         public static final String COLUMN_IDCATEGORY = "idCategory";
+        public static final String[] ALL_COLUMN = new String[] { BaseColumns._ID, COLUMN_NAME, COLUMN_DESCRIPTION,
+                                    COLUMN_BRAND, COLUMN_DOSAGE, COLUMN_PRICE, COLUMN_STOCK, COLUMN_IMAGE, COLUMN_IDCATEGORY};
         public static final String REFERENCE_ID_CATEGORY = String.format("REFERENCES %s (%s) ON UPDATE CASCADE ON DELETE RESTRICT",
                 CategoryEntry.TABLE_NAME, BaseColumns._ID);
 

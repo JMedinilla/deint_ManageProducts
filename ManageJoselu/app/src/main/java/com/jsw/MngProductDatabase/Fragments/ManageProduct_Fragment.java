@@ -87,7 +87,7 @@ public class ManageProduct_Fragment extends Fragment {
             mName.getEditText().setText(p.getName());
             mTrademark.getEditText().setText(p.getBrand());
             mDosage.getEditText().setText(p.getDosage());
-            mStock.getEditText().setText(p.getStock());
+            mStock.getEditText().setText(String.valueOf(p.getStock()));
             mPrice.getEditText().setText(String.valueOf(p.getPrice()));
             mUrl.getEditText().setText(p.getImage());
             mCategory.setSelection(0);
@@ -118,7 +118,7 @@ public class ManageProduct_Fragment extends Fragment {
                 mTrademark.getEditText().getText().toString(),
                 mDosage.getEditText().getText().toString(),
                 Double.valueOf(mPrice.getEditText().getText().toString()),
-                mStock.getEditText().getText().toString(),
+                Integer.valueOf(mStock.getEditText().getText().toString()),
                 mUrl.getEditText().getText().toString(),
                 1));
     }

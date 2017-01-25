@@ -18,7 +18,7 @@ package com.jsw.MngProductDatabase.Presenter;
  */
 
 import com.jsw.MngProductDatabase.Model.Product;
-import com.jsw.MngProductDatabase.DAO.ProductRepository;
+import com.jsw.MngProductDatabase.database.DatabaseManager;
 import com.jsw.MngProductDatabase.interfaces.IProductPresenter;
 
 /**
@@ -34,7 +34,7 @@ public class ProductPresenter implements IProductPresenter{
 
     @Override
     public void loadProducts() {
-        if(ProductRepository.getProducts().isEmpty())
+        if(DatabaseManager.getInstance().getAllProducts().isEmpty())
             view.showEmptyState(true);
         else
             view.showProduct();
@@ -42,12 +42,12 @@ public class ProductPresenter implements IProductPresenter{
 
     @Override
     public Product getProduct(int id) {
-        return ProductRepository.getProducts().get(id);
+        return DatabaseManager.getInstance().getAllProducts().get(id);
     }
 
     @Override
     public void deleteProduct(Product product) {
-        ProductRepository.deleteProduct(product);
+        DatabaseManager.getInstance().deleteProduct(product);
         //Vuelve a cargar los productos y actualiza los productos.
         view.showMessage("Product Delete", product);
         loadProducts();
@@ -55,13 +55,12 @@ public class ProductPresenter implements IProductPresenter{
 
 
     public void addProduct(Product product){
-        ProductRepository.add(product);
+        DatabaseManager.getInstance().addProduct(product);
         view.showProduct();
     }
 
-    public void updateProduct(Product oldProduct, Product newProduct){
-        ProductRepository.deleteProduct(oldProduct);
-        this.addProduct(newProduct);
+    public void updateProduct(Product oldProduct){
+        DatabaseManager.getInstance().updateProduct(oldProduct);
     }
 
     @Override

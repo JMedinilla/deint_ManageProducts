@@ -27,8 +27,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jsw.MngProductDatabase.Model.Product;
-import com.jsw.MngProductDatabase.DAO.ProductRepository;
 import com.jsw.MngProductDatabase.R;
+import com.jsw.MngProductDatabase.database.DatabaseManager;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -50,7 +50,7 @@ public class ProductAdapter extends ArrayAdapter<Product> implements Serializabl
         //Para evitarlo o le hacemos un new ArayList (Lourdes) o a this le hacemos un addAll (Yo)
         super(context, R.layout.item_product);
         this.contexto = context;
-        this.addAll(ProductRepository.getProducts());
+        this.addAll(DatabaseManager.getInstance().getAllProducts());
         refreshView();
     }
 
@@ -81,7 +81,7 @@ public class ProductAdapter extends ArrayAdapter<Product> implements Serializabl
 
         Picasso.with(contexto).load(getItem(position).getImage()).into(p.img);
         p.name.setText(getItem(position).getName());
-        p.stock.setText(getItem(position).getStock());
+        p.stock.setText(String.valueOf(getItem(position).getStock()));
         p.precio.setText(String.valueOf(getItem(position).getPrice()));
 
         return item;
@@ -111,7 +111,7 @@ public class ProductAdapter extends ArrayAdapter<Product> implements Serializabl
 
     public void updateListProduct(){
         this.clear();
-        this.addAll(ProductRepository.getProducts());
+        this.addAll(DatabaseManager.getInstance().getAllProducts());
         refreshView();
     }
 
