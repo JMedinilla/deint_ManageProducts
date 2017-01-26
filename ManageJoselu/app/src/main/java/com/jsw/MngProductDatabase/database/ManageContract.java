@@ -15,6 +15,8 @@ public class ManageContract {
         public static final String TABLE_NAME = "category";
         public static final String COLUMN_NAME = "name";
 
+        public static final String[] ALL_COLUMN = new String[] { BaseColumns._ID, COLUMN_NAME};
+
         public static final String SQL_CREATE_ENTRIES =
                 String.format("CREATE TABLE %s (" +
                                 "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -23,7 +25,11 @@ public class ManageContract {
         public static final String SQL_DELETE_ENTRIES =
                 String.format("DROP TABLE IF EXISTS %s",
                         TABLE_NAME);
-        public static final String SQL_INSERT_CATEGORY = "INSERT INTO category VALUES ('1', 'jarabe')";
+        public static final String SQL_INSERT_CATEGORY_1 = "INSERT INTO category VALUES ('1', 'parche')";
+        public static final String SQL_INSERT_CATEGORY_2 = "INSERT INTO category VALUES ('2', 'jarabe')";
+        public static final String SQL_INSERT_CATEGORY_3 = "INSERT INTO category VALUES ('3', 'jeringuilla')";
+        public static final String SQL_INSERT_CATEGORY_4 = "INSERT INTO category VALUES ('4', 'analgesico')";
+        public static final String SQL_INSERT_CATEGORY_5 = "INSERT INTO category VALUES ('5', 'pastilla')";
     }
 
     public static class ProductEntry implements BaseColumns {

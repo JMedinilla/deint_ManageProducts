@@ -107,8 +107,10 @@ public class Home_Activity extends AppCompatActivity implements ListProduct_Frag
     public void saveProduct(Product oldProduct, Product newProduct) {
         if(oldProduct == null)
             mPresenter.addProduct(newProduct);
-        else
+        else {
+            newProduct.setID(oldProduct.getID());
             mPresenter.updateProduct(newProduct);
+        }
 
         getSupportFragmentManager().popBackStack();
     }

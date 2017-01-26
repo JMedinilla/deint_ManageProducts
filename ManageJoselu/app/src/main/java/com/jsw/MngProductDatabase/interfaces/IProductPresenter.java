@@ -17,6 +17,8 @@ package com.jsw.MngProductDatabase.interfaces;
  *  jose.gallardo994@gmail.com
  */
 
+import android.content.Context;
+
 import com.jsw.MngProductDatabase.Model.Product;
 
 /**
@@ -25,7 +27,7 @@ import com.jsw.MngProductDatabase.Model.Product;
 
 public interface IProductPresenter {
 
-    void loadProducts();
+    void loadProductsss();
     void addProduct(Product p);
     Product getProduct(int id);
     void deleteProduct(Product product);
@@ -35,5 +37,7 @@ public interface IProductPresenter {
         void showProduct();
         void showEmptyState(boolean show);
         void showMessage(String message, Product product);
+
+        Context getContext();
     }
 }

@@ -16,7 +16,7 @@ public class Product implements Parcelable, Comparable<Product> {
     String brand;
     String dosage;
     Double price;
-    int stock;
+    String stock;
     String image;
     int idCategory;
 
@@ -44,7 +44,7 @@ public class Product implements Parcelable, Comparable<Product> {
         this.price = price;
     }
 
-    public void setStock(int stock) {
+    public void setStock(String stock) {
         this.stock = stock;
     }
 
@@ -60,7 +60,18 @@ public class Product implements Parcelable, Comparable<Product> {
 
     }
 
-    public Product(int ID, String name, String description, String brand, String dosage, Double price, int stock, String image, int idCategory) {
+    public Product(String name, String description, String brand, String dosage, Double price, String stock, String image, int idCategory) {
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.dosage = dosage;
+        this.price = price;
+        this.stock = stock;
+        this.image = image;
+        this.idCategory = idCategory;
+    }
+
+    public Product(int ID, String name, String description, String brand, String dosage, Double price, String stock, String image, int idCategory) {
         this.ID = ID;
         this.name = name;
         this.description = description;
@@ -97,7 +108,7 @@ public class Product implements Parcelable, Comparable<Product> {
         return price;
     }
 
-    public int getStock() {
+    public String getStock() {
         return stock;
     }
 
@@ -129,7 +140,7 @@ public class Product implements Parcelable, Comparable<Product> {
         description = in.readString();
         brand = in.readString();
         dosage = in.readString();
-        stock = in.readInt();
+        stock = in.readString();
         image = in.readString();
         idCategory = in.readInt();
     }
@@ -141,7 +152,7 @@ public class Product implements Parcelable, Comparable<Product> {
         dest.writeString(description);
         dest.writeString(brand);
         dest.writeString(dosage);
-        dest.writeInt(stock);
+        dest.writeString(stock);
         dest.writeString(image);
         dest.writeInt(idCategory);
     }

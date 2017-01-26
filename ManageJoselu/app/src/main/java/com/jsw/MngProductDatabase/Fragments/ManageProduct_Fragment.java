@@ -23,28 +23,42 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.jsw.MngProductDatabase.Model.Category;
 import com.jsw.MngProductDatabase.Model.Product;
+import com.jsw.MngProductDatabase.Presenter.CategoryPresenter;
 import com.jsw.MngProductDatabase.R;
+import com.jsw.MngProductDatabase.database.DatabaseManager;
+import com.jsw.MngProductDatabase.database.ManageContract;
+import com.jsw.MngProductDatabase.interfaces.ICategory;
 import com.jsw.MngProductDatabase.interfaces.IProduct;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class ManageProduct_Fragment extends Fragment {
+public class ManageProduct_Fragment extends Fragment implements ICategory.View {
 
     TextInputLayout mName, mTrademark, mDosage, mStock, mPrice, mDescription, mUrl;
     ImageView mImage;
     Spinner mCategory;
     Product p;
 
+    SimpleCursorAdapter simpleCursorAdapter;
+
     FloatingActionButton mFabSave;
     IManageListener mCallBack;
+
+    private CategoryPresenter categoryPresenter;
 
     public static ManageProduct_Fragment getInstance(Bundle args){
         ManageProduct_Fragment fragment = new ManageProduct_Fragment();
@@ -59,6 +73,8 @@ public class ManageProduct_Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         if(getArguments() != null)
             this.p = getArguments().getParcelable(IProduct.PRODUCT_KEY);
+
+        categoryPresenter = new CategoryPresenter(this);
     }
 
     @Override
@@ -75,6 +91,7 @@ public class ManageProduct_Fragment extends Fragment {
         mDescription = (TextInputLayout) rootView.findViewById(R.id.til_descripcion);
         mFabSave = (FloatingActionButton)rootView.findViewById(R.id.fab_guardar);
         mCategory = (Spinner)rootView.findViewById(R.id.spinner);
+
         return rootView;
     }
 
@@ -82,7 +99,14 @@ public class ManageProduct_Fragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(p != null){;
+        String[] from = new String[] {ManageContract.CategoryEntry.COLUMN_NAME};
+        int[] to = new int[] { android.R.id.text1 };
+
+        simpleCursorAdapter = new SimpleCursorAdapter(getContext(), android.R.layout.simple_spinner_item, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        simpleCursorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mCategory.setAdapter(simpleCursorAdapter);
+
+        if(p != null){
             //mImage.setImageResource(p.getImage());
             mName.getEditText().setText(p.getName());
             mTrademark.getEditText().setText(p.getBrand());
@@ -90,7 +114,7 @@ public class ManageProduct_Fragment extends Fragment {
             mStock.getEditText().setText(String.valueOf(p.getStock()));
             mPrice.getEditText().setText(String.valueOf(p.getPrice()));
             mUrl.getEditText().setText(p.getImage());
-            mCategory.setSelection(0);
+            mCategory.setSelection(0); //Cambiar
             mDescription.getEditText().setText(p.getDescription());
         }
 
@@ -104,6 +128,12 @@ public class ManageProduct_Fragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        categoryPresenter.getAllCategory(simpleCursorAdapter);
+    }
+
+    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mCallBack = (IManageListener)activity;
@@ -112,15 +142,14 @@ public class ManageProduct_Fragment extends Fragment {
     private void save(){
 
         mCallBack.saveProduct(p, new Product(
-                new Random().nextInt(),
                 mName.getEditText().getText().toString(),
                 mDescription.getEditText().getText().toString(),
                 mTrademark.getEditText().getText().toString(),
                 mDosage.getEditText().getText().toString(),
                 Double.valueOf(mPrice.getEditText().getText().toString()),
-                Integer.valueOf(mStock.getEditText().getText().toString()),
+                mStock.getEditText().getText().toString(),
                 mUrl.getEditText().getText().toString(),
-                1));
+                mCategory.getSelectedItemPosition())); //Cambiar
     }
 
     public interface IManageListener{

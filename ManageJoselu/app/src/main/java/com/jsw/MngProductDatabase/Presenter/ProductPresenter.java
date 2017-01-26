@@ -17,9 +17,14 @@ package com.jsw.MngProductDatabase.Presenter;
  *  jose.gallardo994@gmail.com
  */
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+
 import com.jsw.MngProductDatabase.Model.Product;
 import com.jsw.MngProductDatabase.database.DatabaseManager;
 import com.jsw.MngProductDatabase.interfaces.IProductPresenter;
+
+import java.util.List;
 
 /**
  * Created by usuario on 9/12/16.
@@ -33,7 +38,7 @@ public class ProductPresenter implements IProductPresenter{
     }
 
     @Override
-    public void loadProducts() {
+    public void loadProductsss() {
         if(DatabaseManager.getInstance().getAllProducts().isEmpty())
             view.showEmptyState(true);
         else
@@ -48,9 +53,8 @@ public class ProductPresenter implements IProductPresenter{
     @Override
     public void deleteProduct(Product product) {
         DatabaseManager.getInstance().deleteProduct(product);
-        //Vuelve a cargar los productos y actualiza los productos.
         view.showMessage("Product Delete", product);
-        loadProducts();
+        loadProductss();
     }
 
 
@@ -59,12 +63,50 @@ public class ProductPresenter implements IProductPresenter{
         view.showProduct();
     }
 
-    public void updateProduct(Product oldProduct){
-        DatabaseManager.getInstance().updateProduct(oldProduct);
+    public void updateProduct(Product product){
+        DatabaseManager.getInstance().updateProduct(product);
+        view.showProduct();
     }
 
     @Override
     public void onDestroy() {
         this.view = null;
+    }
+
+    public void loadProductss() {
+        new AsyncTask<Void, Void, List<Product>>() {
+            ProgressDialog progressDialog = new ProgressDialog(view.getContext());
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog.setMessage("Cargando . . .");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }
+
+            @Override
+            protected List<Product> doInBackground(Void... params) {
+                try {
+                    Thread.sleep(2222);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                return DatabaseManager.getInstance().getAllProducts();
+            }
+
+            @Override
+            protected void onPostExecute(List<Product> list) {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
+                view.showProduct();
+            }
+
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+            }
+        }.execute();
     }
 }

@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.widget.ArrayAdapter;
 
+import com.jsw.MngProductDatabase.Model.Category;
 import com.jsw.MngProductDatabase.Model.Product;
 
 import java.util.ArrayList;
@@ -39,7 +41,7 @@ public class DatabaseManager {
                 product.setBrand(cursor.getString(3));
                 product.setDosage(cursor.getString(4));
                 product.setPrice(cursor.getDouble(5));
-                product.setStock(cursor.getInt(6));
+                product.setStock(cursor.getString(6));
                 product.setImage(cursor.getString(7));
                 product.setIdCategory(cursor.getInt(8));
                 products.add(product);
@@ -49,6 +51,14 @@ public class DatabaseManager {
 
         DatabaseHelper.getInstance().closeDatabase();
         return products;
+    }
+
+    public Cursor getCategories() {
+        SQLiteDatabase sqLiteDatabase = DatabaseHelper.getInstance().openDatabase();
+        Cursor cursor = sqLiteDatabase.query(ManageContract.CategoryEntry.TABLE_NAME,
+                ManageContract.CategoryEntry.ALL_COLUMN, null, null, null, null, null);
+        DatabaseHelper.getInstance().closeDatabase();
+        return cursor;
     }
 
     public void updateProduct(Product product) {
@@ -61,7 +71,7 @@ public class DatabaseManager {
         contentValues.put(ManageContract.ProductEntry.COLUMN_PRICE, product.getPrice());
         contentValues.put(ManageContract.ProductEntry.COLUMN_STOCK, product.getStock());
         contentValues.put(ManageContract.ProductEntry.COLUMN_IMAGE, product.getImage());
-        contentValues.put(ManageContract.ProductEntry.COLUMN_IDCATEGORY, 1);
+        contentValues.put(ManageContract.ProductEntry.COLUMN_IDCATEGORY, product.getIdCategory());
 
         String where = BaseColumns._ID + " = ?";
         String[] whereArgs = new String[]{String.valueOf(product.getID())};
@@ -86,6 +96,10 @@ public class DatabaseManager {
     }
 
     public void deleteProduct(Product product) {
-
+        SQLiteDatabase sqLiteDatabase = DatabaseHelper.getInstance().openDatabase();
+        sqLiteDatabase.delete(ManageContract.ProductEntry.TABLE_NAME,
+                BaseColumns._ID + " = ?",
+                new String[]{String.valueOf(product.getID())});
+        DatabaseHelper.getInstance().closeDatabase();
     }
 }
