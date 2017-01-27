@@ -3,6 +3,7 @@ package com.jsw.MngProductDatabase.Presenter;
 import android.database.Cursor;
 import android.support.v4.widget.CursorAdapter;
 
+import com.jsw.MngProductDatabase.database.DatabaseHelper;
 import com.jsw.MngProductDatabase.database.DatabaseManager;
 import com.jsw.MngProductDatabase.interfaces.ICategory;
 
@@ -18,5 +19,6 @@ public class CategoryPresenter implements ICategory {
     public void getAllCategory(CursorAdapter cursorAdapter) {
         Cursor cursor = DatabaseManager.getInstance().getCategories();
         cursorAdapter.swapCursor(cursor);
+        DatabaseHelper.getInstance().closeDatabase();
     }
 }

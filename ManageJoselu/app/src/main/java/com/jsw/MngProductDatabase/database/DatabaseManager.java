@@ -57,7 +57,7 @@ public class DatabaseManager {
         SQLiteDatabase sqLiteDatabase = DatabaseHelper.getInstance().openDatabase();
         Cursor cursor = sqLiteDatabase.query(ManageContract.CategoryEntry.TABLE_NAME,
                 ManageContract.CategoryEntry.ALL_COLUMN, null, null, null, null, null);
-        DatabaseHelper.getInstance().closeDatabase();
+        //DatabaseHelper.getInstance().closeDatabase();
         return cursor;
     }
 
