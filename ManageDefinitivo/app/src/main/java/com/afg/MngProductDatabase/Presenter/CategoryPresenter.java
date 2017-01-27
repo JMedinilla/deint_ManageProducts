@@ -17,33 +17,60 @@ package com.afg.MngProductDatabase.Presenter;
  *  jose.gallardo994@gmail.com
  */
 
+import android.app.Activity;
+import android.content.Context;
 import android.database.Cursor;
+import android.os.Bundle;
+import android.app.LoaderManager;
+import android.content.Loader;
 import android.widget.CursorAdapter;
-import android.widget.SpinnerAdapter;
 
-import com.afg.MngProductDatabase.database.DataBaseHelper;
-import com.afg.MngProductDatabase.database.DataBaseManager;
+import com.afg.MngProductDatabase.cursor.CategoryCursorLoader;
 import com.afg.MngProductDatabase.interfaces.ICategoryPresenter;
 
-/**
- * Created by usuario on 26/01/17.
- */
+public class CategoryPresenter implements ICategoryPresenter, LoaderManager.LoaderCallbacks<Cursor> {
 
-public class CategoryPresenter implements ICategoryPresenter {
-
+    private Context context;
     private ICategoryPresenter.View view;
+    private final static int CATEGORY = 1;
 
     public CategoryPresenter(ICategoryPresenter.View view){
-
         this.view = view;
+        this.context = view.getContext();
     }
 
     @Override
-    public void getAllCategoies(CursorAdapter adapter) {
+    public void getAllCategoies() {
 
-        Cursor cursor = DataBaseManager.getInstance().loadCategories();
-        adapter.swapCursor(cursor);
-        DataBaseHelper.getInstance().closeDataBase();
+        //Cursor cursor = DataBaseManager.getInstance().loadCategories();
+        //adapter.swapCursor(cursor);
+        //DataBaseHelper.getInstance().closeDataBase();
 
+        //getLoaderManager().initLoader(CATEGORY, null, this); -> esto se usaría desde la Activity/Fragment
+        ((Activity)context).getLoaderManager().initLoader(CATEGORY, null, this);
+
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        Loader<Cursor> loader;
+        switch (id) {
+            case CATEGORY:
+                loader = new CategoryCursorLoader(context);
+                break;
+            default:
+                loader = null;
+        }
+        return loader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        view.setCursorCategory(cursor);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        view.setCursorCategory(null);
     }
 }

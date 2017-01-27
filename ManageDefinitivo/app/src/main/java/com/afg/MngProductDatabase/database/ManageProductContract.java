@@ -23,6 +23,9 @@ public class ManageProductContract  {
 
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",
                 TABLE_NAME);
+        public static final String INSERT_CATEGORY_1 = "INSERT INTO category VALUES (1,'jarabe')";
+        public static final String INSERT_CATEGORY_2 = "INSERT INTO category VALUES (2,'pastilla')";
+        public static final String INSERT_CATEGORY_3 = "INSERT INTO category VALUES (3,'parche')";
 
     }
 

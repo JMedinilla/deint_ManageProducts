@@ -17,18 +17,16 @@ package com.afg.MngProductDatabase.interfaces;
  *  jose.gallardo994@gmail.com
  */
 
+import android.content.Context;
+import android.database.Cursor;
 import android.widget.CursorAdapter;
-
-/**
- * Created by usuario on 26/01/17.
- */
 
 public interface ICategoryPresenter {
 
     interface View{
-
-
+        Context getContext();
+        void setCursorCategory(Cursor cursorCategory);
     }
 
-    void getAllCategoies(CursorAdapter adapter);
+    void getAllCategoies();
 }

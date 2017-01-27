@@ -18,6 +18,8 @@ package com.afg.MngProductDatabase.Fragments;
  */
 
 import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -30,7 +32,9 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.afg.MngProductDatabase.Model.Category;
 import com.afg.MngProductDatabase.Model.Product;
 import com.afg.MngProductDatabase.Presenter.CategoryPresenter;
 import com.afg.MngProductDatabase.R;
@@ -106,7 +110,7 @@ public class ManageProduct_Fragment extends Fragment implements ICategoryPresent
             mStock.getEditText().setText(p.getStock());
             mPrice.getEditText().setText(String.valueOf(p.getPrice()));
             mUrl.getEditText().setText(p.getImage());
-            mCategory.setSelection(0);
+            mCategory.setSelection(p.getIdCategory());
             mDescription.getEditText().setText(p.getDescription());
             update = true;
         }
@@ -123,7 +127,7 @@ public class ManageProduct_Fragment extends Fragment implements ICategoryPresent
     @Override
     public void onStart() {
         super.onStart();
-        presenter.getAllCategoies(adapter);
+        presenter.getAllCategoies();
 
     }
 
@@ -135,6 +139,9 @@ public class ManageProduct_Fragment extends Fragment implements ICategoryPresent
 
     private void save(){
 
+        Cursor cursor = ((SimpleCursorAdapter)mCategory.getAdapter()).getCursor();
+        cursor.moveToPosition(mCategory.getSelectedItemPosition());
+
         mCallBack.saveProduct(p, new Product(
 
                 mName.getEditText().getText().toString(),
@@ -144,10 +151,24 @@ public class ManageProduct_Fragment extends Fragment implements ICategoryPresent
                 Double.valueOf(mPrice.getEditText().getText().toString()),
                 mStock.getEditText().getText().toString(),
                 mUrl.getEditText().getText().toString(),
-                1));
+                cursor.getInt(0)));
+    }
+
+    @Override
+    public void setCursorCategory(Cursor cursorCategory) {
+        //adapter.swapCursor(cursorCategory);
+        //Change abre el nuevo y cierra el antiguo
+        adapter.changeCursor(cursorCategory);
     }
 
     public interface IManageListener{
         void saveProduct(Product oldProduct, Product newProduct);
+    }
+
+    @Override
+    public void onDetach() {
+        mCallBack = null;
+        adapter = null;
+        super.onDetach();
     }
 }
