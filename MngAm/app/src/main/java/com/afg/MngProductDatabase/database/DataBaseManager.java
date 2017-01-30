@@ -6,7 +6,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.afg.MngProductDatabase.Model.Category;
 import com.afg.MngProductDatabase.Model.Pharmacy;
@@ -120,6 +122,20 @@ public class DataBaseManager {
 
             }while (cursor.moveToNext());
         }
+        cursor.close();
+
+        //Mostrar en el Log la unión entre Product y Category
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+        sqLiteQueryBuilder.setTables(ManageProductContract.ProductEntry.PRODUCT_JOIN_CATEGORY);
+        cursor = sqLiteQueryBuilder.query(database,
+                ManageProductContract.ProductEntry.COLUMNS_PRODUCT_JOIN_CATEGORY, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Log.e("MngProductDatabase", cursor.getString(0)+", "+cursor.getString(1)+"->"+cursor.getString(2));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
 
 
         DataBaseHelper.getInstance().closeDataBase();

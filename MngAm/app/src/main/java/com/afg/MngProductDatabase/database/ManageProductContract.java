@@ -24,6 +24,9 @@ public class ManageProductContract  {
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",
                 TABLE_NAME);
 
+        public static final String INSERT_CATEGORY_1 = "INSERT INTO category VALUES (1,'Jarabe')";
+        public static final String INSERT_CATEGORY_2 = "INSERT INTO category VALUES (2,'Pastilla')";
+        public static final String INSERT_CATEGORY_3 = "INSERT INTO category VALUES (3,'Colirio')";
     }
 
     public static class ProductEntry implements BaseColumns{
@@ -37,6 +40,14 @@ public class ManageProductContract  {
         public static final String COLUMN_STOCK = "pr_stock";
         public static final String COLUMN_IMAGE = "pr_image";
         public static final String COLUMN_CATEGORY = "pr_category";
+
+        public static final String PRODUCT_JOIN_CATEGORY = String.format("%s p INNER JOIN %s c ON p.%s = c.%s",
+                TABLE_NAME, CategoryEntry.TABLE_NAME, COLUMN_CATEGORY, BaseColumns._ID);
+
+        public static final String[] COLUMNS_PRODUCT_JOIN_CATEGORY = new String[] {
+                COLUMN_NAME,COLUMN_DESCRIPTION,CategoryEntry.COLUMN_NAME
+        };
+
         public static final String[] ALL_COLUMNS = {ManageProductContract.ProductEntry._ID, ManageProductContract.ProductEntry.COLUMN_NAME,
                 ManageProductContract.ProductEntry.COLUMN_BRAND,ManageProductContract.ProductEntry.COLUMN_CATEGORY,
                 ManageProductContract.ProductEntry.COLUMN_DESCRIPTION, ManageProductContract.ProductEntry.COLUMN_DOSAGE,

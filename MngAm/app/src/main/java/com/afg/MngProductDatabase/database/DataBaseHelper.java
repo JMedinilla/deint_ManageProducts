@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public final class DataBaseHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "ManageProduct.db";
     private Context context;
     private static volatile DataBaseHelper instance;
@@ -89,6 +89,9 @@ public final class DataBaseHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(ManageProductContract.StatusEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(ManageProductContract.InvoiceEntry.SQL_CREATE_ENTRIES);
             sqLiteDatabase.execSQL(ManageProductContract.InvoiceLineEntry.SQL_CREATE_ENTRIES);
+            sqLiteDatabase.execSQL(ManageProductContract.CategoryEntry.INSERT_CATEGORY_1);
+            sqLiteDatabase.execSQL(ManageProductContract.CategoryEntry.INSERT_CATEGORY_2);
+            sqLiteDatabase.execSQL(ManageProductContract.CategoryEntry.INSERT_CATEGORY_3);
             sqLiteDatabase.setTransactionSuccessful();
 
         }catch (SQLiteException ex){
