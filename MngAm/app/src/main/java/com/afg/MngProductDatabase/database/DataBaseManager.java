@@ -24,10 +24,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by usuario on 23/01/17.
- */
-
 public class DataBaseManager {
 
 
@@ -285,8 +281,7 @@ public class DataBaseManager {
         }.execute();
     }
 
-    public void loadPharmacies(IActionPharmacyLoadAll callBack){
-
-        //Ya veremos...
+    public Cursor loadPharmacies(){
+        return null;
     }
 }

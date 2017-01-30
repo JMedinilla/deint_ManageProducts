@@ -19,6 +19,7 @@ package com.afg.MngProductDatabase.Fragments;
  */
 
 import android.app.ProgressDialog;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -31,13 +32,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.afg.MngProductDatabase.Adapter.PharmacyAdapter;
 import com.afg.MngProductDatabase.Model.Pharmacy;
+import com.afg.MngProductDatabase.Presenter.PharmacyPresenter;
 import com.afg.MngProductDatabase.R;
+import com.afg.MngProductDatabase.interfaces.IPharmacyPresenter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListPharmacy_Fragment extends Fragment {
+public class ListPharmacy_Fragment extends Fragment implements IPharmacyPresenter.View {
 
 
     private ProgressDialog dialog;
@@ -46,16 +50,18 @@ public class ListPharmacy_Fragment extends Fragment {
     public static final String RECOVERY_PHARMACY = "pharmacy";
     private CoordinatorLayout parent;
 
+    private PharmacyAdapter adapter;
+    private PharmacyPresenter presenter;
+
     public ListPharmacy_Fragment() {
 
 
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_list_pharmacy, null);
         list = (ListView)rootView.findViewById(R.id.listPharmacy);
         parent = (CoordinatorLayout)rootView.findViewById(R.id.listPharmacyFragment);
@@ -99,7 +105,16 @@ public class ListPharmacy_Fragment extends Fragment {
             }
         });
 
+        presenter = new PharmacyPresenter(this);
+
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        adapter = new PharmacyAdapter(null, 0, null, null, null, 0);
     }
 
     @Override
@@ -107,5 +122,16 @@ public class ListPharmacy_Fragment extends Fragment {
 
         super.onCreateContextMenu(menu, v, menuInfo);
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        presenter.getAllPharmacies();
+    }
+
+    @Override
+    public void setCursorPharmacy(Cursor cursor) {
+        adapter.changeCursor(cursor);
     }
 }
