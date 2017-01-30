@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="General Settings">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:title="@string/pref_numColumn_title"
+            android:entries="@array/pref_numcolumn_entries"
+            android:summary="@string/pref_numColumn_summary"
+            android:entryValues="@array/pref_numcolumn_values"
+            android:key="list_preference_1" />
+    </PreferenceCategory>
+</PreferenceScreen>
