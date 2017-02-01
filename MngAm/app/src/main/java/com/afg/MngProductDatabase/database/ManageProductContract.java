@@ -109,6 +109,8 @@ public class ManageProductContract  {
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",
                 TABLE_NAME);
 
+        public static final String[] ALL_COLUMNS = {_ID, COLUMN_NAME,COLUMN_CIF,COLUMN_ADDRESS,COLUMN_PHONE,COLUMN_MAIL };
+
     }
 
     public static class StatusEntry implements BaseColumns{

@@ -282,6 +282,11 @@ public class DataBaseManager {
     }
 
     public Cursor loadPharmacies(){
-        return null;
+        SQLiteDatabase database = DataBaseHelper.getInstance().openDataBase();
+        Cursor cursor = database.query(
+                ManageProductContract.PharmacyEntry.TABLE_NAME,
+                ManageProductContract.PharmacyEntry.ALL_COLUMNS,
+                null, null, null, null, null);
+        return cursor;
     }
 }

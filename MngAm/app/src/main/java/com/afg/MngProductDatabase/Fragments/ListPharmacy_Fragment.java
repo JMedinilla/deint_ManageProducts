@@ -36,6 +36,7 @@ import com.afg.MngProductDatabase.Adapter.PharmacyAdapter;
 import com.afg.MngProductDatabase.Model.Pharmacy;
 import com.afg.MngProductDatabase.Presenter.PharmacyPresenter;
 import com.afg.MngProductDatabase.R;
+import com.afg.MngProductDatabase.database.ManageProductContract;
 import com.afg.MngProductDatabase.interfaces.IPharmacyPresenter;
 
 /**
@@ -114,7 +115,8 @@ public class ListPharmacy_Fragment extends Fragment implements IPharmacyPresente
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new PharmacyAdapter(null, 0, null, null, null, 0);
+        adapter = new PharmacyAdapter(getActivity());
+        list.setAdapter(adapter);
     }
 
     @Override

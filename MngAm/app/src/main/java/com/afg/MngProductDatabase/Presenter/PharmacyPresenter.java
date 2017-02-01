@@ -22,18 +22,7 @@ public class PharmacyPresenter implements IPharmacyPresenter, LoaderManager.Load
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Loader<Cursor> cursorLoader = null;
-
-        switch (id){
-
-            case PHARMACY:
-                cursorLoader = new PharmacyCursorLoader(context);
-                break;
-
-
-        }
-
-        return cursorLoader;
+        return new PharmacyCursorLoader(this.context);
     }
 
     @Override
