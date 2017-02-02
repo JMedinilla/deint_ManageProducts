@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.afg.MngProductDatabase.SplashScreen_Activity"
+    android:background="@color/minePrimaryDark"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/splash"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>

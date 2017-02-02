@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_marginTop="16dp"
+        android:hint="@string/text_name"
+        android:id="@+id/edtNamePharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="10dp"
+        android:hint="@string/text_email"
+        android:id="@+id/edtEmailPharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:hint="@string/text_cif"
+        android:id="@+id/edtCifPharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:hint="@string/text_phone"
+        android:id="@+id/edtPhonePharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:hint="@string/text_address"
+        android:id="@+id/edtAddressPharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnManagePharmacy"
+        android:layout_marginTop="16dp"
+        android:text="Pulsame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
