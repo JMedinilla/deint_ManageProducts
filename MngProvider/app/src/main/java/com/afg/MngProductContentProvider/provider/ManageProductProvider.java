@@ -100,8 +100,7 @@ public class ManageProductProvider extends ContentProvider {
 
         String sqlQuery = sqLiteQueryBuilder.buildQuery(projection, selection, null, null, sortOrder, null);
         Log.i("kdkdksokisdp", sqlQuery);
-        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, projection, selection, selectionArgs, null, null, sortOrder);
-        return cursor;
+        return sqLiteQueryBuilder.query(sqLiteDatabase, projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     @Nullable

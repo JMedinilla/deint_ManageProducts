@@ -80,7 +80,7 @@ public class CategoryPresenter implements ICategoryPresenter, LoaderManager.Load
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         view.setCursorCategory(cursor);
-        view.getCursorCategory().setNotificationUri(context.getContentResolver(), ManageProductContract.Category.CONTENT_URI);
+        cursor.setNotificationUri(context.getContentResolver(), ManageProductContract.Category.CONTENT_URI);
     }
 
     @Override
