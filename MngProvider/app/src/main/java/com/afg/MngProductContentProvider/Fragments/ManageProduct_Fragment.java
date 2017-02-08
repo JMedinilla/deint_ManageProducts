@@ -146,6 +146,11 @@ public class ManageProduct_Fragment extends Fragment implements ICategoryPresent
     }
 
     @Override
+    public Cursor getCursorCategory() {
+        return adapter.getCursor();
+    }
+
+    @Override
     public void onDetach() {
         adapter = null;
         super.onDetach();

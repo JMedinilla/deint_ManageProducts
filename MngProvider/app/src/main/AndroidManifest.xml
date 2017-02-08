@@ -12,6 +12,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:authorities="com.afg.MngProductContentProvider"
+            android:name=".provider.ManageProductProvider"/>
+
         <activity android:name="com.afg.MngProductContentProvider.SplashScreen_Activity"></activity>
         <activity
             android:name="com.afg.MngProductContentProvider.Login_Activity"

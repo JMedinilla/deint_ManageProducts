@@ -32,6 +32,7 @@ public interface ICategoryPresenter {
         Context getContext();
 
         void setCursorCategory(Cursor cursor);
+        Cursor getCursorCategory();
     }
 
     void getAllCategoies();

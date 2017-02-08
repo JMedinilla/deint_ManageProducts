@@ -38,6 +38,9 @@ public class DataBaseContract {
         public static final String SQL_DELETE_ENTRIES = String.format("DROP TABLE IF EXISTS %s",
                 TABLE_NAME);
 
+
+        public static final String DEFAULT_SORT = COLUMN_NAME;
+
     }
 
     public static class ProductEntry implements BaseColumns{

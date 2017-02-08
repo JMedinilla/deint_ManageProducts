@@ -21,8 +21,6 @@ public class ManageProductContract  {
         public static final String NAME = "name";
         public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, CONTENT_PATH);
         public static final String[] PROJECTION = {String.valueOf(_ID), NAME};
-
-
     }
 
     public static class Product implements BaseColumns{

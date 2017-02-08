@@ -21,9 +21,16 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.afg.MngProductContentProvider.database.DataBaseContract;
+import com.afg.MngProductContentProvider.database.DataBaseHelper;
 
 /**
  * Created by usuario on 6/02/17.
@@ -43,6 +50,8 @@ public class ManageProductProvider extends ContentProvider {
     private static final int INVOICELINE_ID = 10;
     private static final int STATUS = 11;
     private static final int STATUS_ID = 12;
+
+    private SQLiteDatabase sqLiteDatabase;
 
     private static final UriMatcher uriMacher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -64,13 +73,35 @@ public class ManageProductProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        return false;
+        sqLiteDatabase = DataBaseHelper.getInstance().openDataBase();
+        return true;
     }
 
     @Nullable
     @Override
-    public Cursor query(Uri uri, String[] strings, String s, String[] strings1, String s1) {
-        return null;
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+        switch (uriMacher.match(uri)) {
+            case CATEGORY:
+                sqLiteQueryBuilder.setTables(DataBaseContract.CategoryEntry.TABLE_NAME);
+                if (TextUtils.isEmpty(sortOrder)) {
+                    sortOrder = DataBaseContract.CategoryEntry.DEFAULT_SORT;
+                }
+                break;
+            case CATEGORY_ID:
+                break;
+            case PRODUCT:
+                break;
+            case PRODUCT_ID:
+                break;
+            case UriMatcher.NO_MATCH:
+                throw new IllegalArgumentException("Invalid URI");
+        }
+
+        String sqlQuery = sqLiteQueryBuilder.buildQuery(projection, selection, null, null, sortOrder, null);
+        Log.i("kdkdksokisdp", sqlQuery);
+        Cursor cursor = sqLiteQueryBuilder.query(sqLiteDatabase, projection, selection, selectionArgs, null, null, sortOrder);
+        return cursor;
     }
 
     @Nullable

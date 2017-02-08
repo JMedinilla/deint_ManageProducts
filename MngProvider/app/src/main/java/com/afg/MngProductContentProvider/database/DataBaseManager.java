@@ -420,10 +420,10 @@ public class DataBaseManager {
         ContentValues params = new ContentValues();
         SQLiteDatabase database = DataBaseHelper.getInstance().openDataBase();
         params.put(DataBaseContract.InvoiceLineEntry.COLUMN_IL_AMOUNT, invoiceLine.getAmount());
-        params.put(DataBaseContract.InvoiceLineEntry.COLUMN_IL_INVOICE, invoiceLine.getIdInvoice());
+        params.put(DataBaseContract.InvoiceLineEntry.INVOICE_ID, invoiceLine.getIdInvoice());
         params.put(DataBaseContract.InvoiceLineEntry.COLUMN_IL_ORDER_PRODUCT, invoiceLine.getOrderProduct());
         params.put(DataBaseContract.InvoiceLineEntry.COLUMN_IL_PRICE, invoiceLine.getPrice());
-        params.put(DataBaseContract.InvoiceLineEntry.COLUMN_IL_PRODUCT, invoiceLine.getIdProduct());
+        params.put(DataBaseContract.InvoiceLineEntry.PRODUCT_ID, invoiceLine.getIdProduct());
         database.insert(DataBaseContract.InvoiceLineEntry.TABLE_NAME, null, params);
         DataBaseHelper.getInstance().closeDataBase();
 
@@ -449,7 +449,7 @@ public class DataBaseManager {
         ContentValues params = new ContentValues();
         String[] whereParams = {String.valueOf(invoiceLine.getIdInvoice()), String.valueOf(invoiceLine.getIdInvoice())};
         database.delete(DataBaseContract.InvoiceLineEntry.TABLE_NAME,
-                DataBaseContract.InvoiceLineEntry.COLUMN_IL_INVOICE + "= ? AND"+
+                DataBaseContract.InvoiceLineEntry.INVOICE_ID + "= ? AND"+
                         DataBaseContract.InvoiceLineEntry.COLUMN_IL_ORDER_PRODUCT + "= ?", whereParams);
         DataBaseHelper.getInstance().closeDataBase();
 
