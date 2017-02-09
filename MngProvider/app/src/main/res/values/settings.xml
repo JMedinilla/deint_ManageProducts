@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_account">User Account Settings</string>
+    <string name="pref_user_title">User</string>
+    <string name="pref_rememberuser">Remember User</string>
+    <string name="pref_user_summary">User name in the app</string>
+    <string name="pref_password_title">Password</string>
+    <string name="pref_password_summary">User pass in the app</string>
+    <string name="pref_numColumn_title">Columns</string>
+    <string name="pref_numColumn_summary">Columns Design in list</string>
+
+    <string-array name="pref_numcolumn_entries">
+        <item>1 columnns</item>
+        <item>2 columns</item>
+    </string-array>
+
+    <string-array name="pref_numcolumn_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

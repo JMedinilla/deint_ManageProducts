@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/iv_img"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_img"
+        android:layout_toRightOf="@id/iv_img"
+        android:id="@+id/tv_nombre" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_stock"
+        android:layout_alignBottom="@+id/iv_img"
+        android:layout_toRightOf="@+id/iv_img"
+        android:layout_toEndOf="@+id/iv_img" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_precio"
+        android:layout_above="@+id/tv_stock"
+        android:layout_toRightOf="@+id/iv_img"
+        android:layout_toEndOf="@+id/iv_img"
+        android:layout_marginBottom="11dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        android:layout_below="@id/tv_stock"/>
+
+</RelativeLayout>

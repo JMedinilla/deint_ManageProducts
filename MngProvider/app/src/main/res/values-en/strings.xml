@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_login">Login</string>
+    <string name="cb_text">Remember me</string>
+    <string name="data_empty">Fields can not be empty</string>
+    <string name="hint_pass">Password</string>
+    <string name="hint_user">User</string>
+    <string name="login_ok">Login Successfully</string>
+    <string name="passCase">Password must contain at least one uppercase letter.</string>
+    <string name="passDigit">Password must contain at least one digit</string>
+    <string name="passMinLength">"The password must be at least 8 characters long. "</string>
+</resources>
