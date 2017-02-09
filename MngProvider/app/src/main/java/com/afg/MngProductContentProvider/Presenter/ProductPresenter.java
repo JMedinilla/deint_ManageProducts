@@ -111,6 +111,7 @@ public class ProductPresenter implements IProductPresenter, LoaderManager.Loader
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        cursor.setNotificationUri(view.getContext().getContentResolver(), ManageProductContract.Product.CONTENT_URI);
         view.setCursorPharmacy(cursor);
     }
 

@@ -18,9 +18,11 @@ package com.afg.MngProductContentProvider.provider;
  */
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
@@ -97,6 +99,7 @@ public class ManageProductProvider extends ContentProvider {
                 break;
             case PRODUCT:
                 builder.setTables(DataBaseContract.ProductEntry.TABLE_NAME);
+                //builder.setProjectionMap(ManageProductContract.Product.sProductProjectionMap);
                 if(!TextUtils.isEmpty(order)){
 
                     order = DataBaseContract.ProductEntry.DEFAULT_SORT;
@@ -154,7 +157,26 @@ public class ManageProductProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
-        return null;
+        Uri newUri = null;
+        long regId = 0;
+        switch (uriMacher.match(uri)) {
+            case CATEGORY:
+                regId = database.insert(DataBaseContract.CategoryEntry.TABLE_NAME, null, contentValues);
+                newUri = ContentUris.withAppendedId(uri, regId);
+                break;
+            case PRODUCT:
+                regId = database.insert(DataBaseContract.ProductEntry.TABLE_NAME, null, contentValues);
+                newUri = ContentUris.withAppendedId(uri, regId);
+                break;
+        }
+        if (regId != -1) {
+            //Notifica a los observadores que se ha modificado una uri
+            getContext().getContentResolver().notifyChange(newUri, null);
+        }
+        else {
+            throw new SQLException("Error al insertar");
+        }
+        return newUri;
     }
 
     @Override

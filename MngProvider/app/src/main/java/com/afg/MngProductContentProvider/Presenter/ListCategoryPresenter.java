@@ -19,9 +19,12 @@ package com.afg.MngProductContentProvider.Presenter;
 
 import android.app.Activity;
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 
 import com.afg.MngProductContentProvider.Model.Category;
@@ -55,6 +58,15 @@ public class ListCategoryPresenter implements ICategoryPresenter, LoaderManager.
     public void updateCategory(Category category){
 
        // DataBaseManager.getInstance().updateCategory(category);
+
+        try {
+            ContentValues contentValues = new ContentValues();
+            view.getContext().getContentResolver().insert(ManageProductContract.Category.CONTENT_URI, contentValues);
+        }
+        catch (SQLiteException e) {
+            //
+        }
+
         reloadCategories();
 
     }
